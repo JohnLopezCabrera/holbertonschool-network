@@ -1,16 +1,4 @@
-#!/usr/bin/bash
-# This script lists all listening ports along with the PID and program name
+#!/usr/bin/env bash
 
-# List TCP and UDP listening sockets with the PID and program name
+# Use netstat to find open ports and display listening sockets
 netstat -p | grep LISTEN
-# Extract the port numbers from the netstat output
-port_numbers=$(netstat -p | grep LISTEN | awk '{print $4}' | awk -F ':' '{print $NF}')
-
-# Iterate over each port number
-for port in $port_numbers; do
-    # Get the PID and program name associated with the port
-    pid_program=$(lsof -i :$port | awk 'NR==2{print $2, $1}')
-    
-    # Print the port, PID, and program name
-    echo "Port: $port, PID: $pid_program"
-done
