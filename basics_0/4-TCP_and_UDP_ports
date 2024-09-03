@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
-# This script lists all listening ports along with the PID and program name using ss command
+#!/usr/bin/bash
+# This script lists all listening ports along with the PID and program name
 
 # List TCP and UDP listening sockets with the PID and program name
-ss -tuln | awk 'NR == 1 || /LISTEN/' 
+netstat -tulnp | grep LISTEN
