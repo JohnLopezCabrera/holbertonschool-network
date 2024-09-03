@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# This script lists all listening ports along with the PID and program name
 
-# Use netstat to find open ports and display listening sockets
-netstat -p | grep LISTEN
+# List TCP and UDP listening sockets with the PID and program name
+netstat -tulnp | grep LISTEN
