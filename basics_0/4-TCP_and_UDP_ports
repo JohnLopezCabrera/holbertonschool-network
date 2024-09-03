@@ -1,15 +1,5 @@
-#!/bin/bash
-
-# Display active Internet connections (only servers)
-echo "Active Internet connections (only servers)"
-echo "Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name"
+#!/usr/bin/env bash
+# This script lists all listening ports along with the PID and program name
 
 # List TCP and UDP listening sockets with the PID and program name
-sudo netstat -tulnp | grep LISTEN
-
-# Display active UNIX domain sockets (only servers)
-echo -e "\nActive UNIX domain sockets (only servers)"
-echo "Proto RefCnt Flags       Type       State         I-Node   PID/Program name    Path"
-
-# List UNIX domain sockets that are listening with the PID and program name
-sudo netstat -lxnp
+netstat -tulnp | grep LISTEN
