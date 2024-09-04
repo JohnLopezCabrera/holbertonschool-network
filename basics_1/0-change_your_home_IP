@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
-# this script configures localhost and facebook.com IP addresses in /etc/hosts
+# Displays all active IPv4 IPs
 
-# check if running as the root
+# Backup original hosts file
 sudo cp /etc/hosts /etc/hosts.bak
 
-# remove any localhost and facebook entries
+# Modify the localhost
 sudo sed -i '/127.0.0.1\s*localhost/d' /etc/hosts
 sudo sed -i '/facebook.com/d' /etc/hosts
 
-# adding new entries for facebook
+# Modify facebook entry
 echo "127.0.0.2 localhost" | sudo tee -a /etc/hosts > /dev/null
 echo "8.8.8.8 facebook.com" | sudo tee -a /etc/hosts > /dev/null
 
